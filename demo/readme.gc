@@ -1,0 +1,5 @@
+Copy `scritps` direcotry from `angulas-seed` project to here.
+
+Start: ./scripts/web-server.sh
+
+展示仪表盘! 虽然不是很炫的那种仪表盘，但是可以支持大小缩放并自动排列。非常好的参考项目。
