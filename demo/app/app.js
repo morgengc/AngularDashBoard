@@ -10,4 +10,4 @@ app = angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute','nvd3ChartDir
 					redirectTo: '/dashboard'
 				});
 		}
-	])
+	]);

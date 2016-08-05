@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Angular Dashboard with custom Directive</title>
+    <title>展示板</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
 
@@ -19,12 +19,12 @@
 <body ng-app="app">
 
     <div class="row" ng-controller="RootCtrl">
-        <div class="col-md-1"></div>
-        <div class="container col-md-10" ng-view></div>
-        <div class="col-md-1"></div>
+        <!--<div class="col-md-1"></div>-->
+        <div class="container col-md-12" ng-view></div>
+        <!--<div class="col-md-1"></div>-->
     </div>
 
-    <!-- those shoud be first -->
+    <!-- those should be first -->
     <script src="script/jquery.min.js"></script>
     <script src="script/leaflet.js"></script>
 

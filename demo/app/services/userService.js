@@ -7,20 +7,20 @@ app.service('userService',['$http','$q', function ($http,$q) {
         return {
             1: {
                 id: '1',
-                name: 'dashboard 1',
+                name: '开发版面',
                 widgets: [
-                    {col: 0,row: 0,sizeY: 1,sizeX: 1,name: "Widget 1",id:0,content:"array"}, 
-                    {col: 2,row: 0,sizeY: 1, sizeX: 1,name: "Widget 2",id:1,content:'map'}
+                    {id:0,name: "Widget 1",row: 0,col: 0,sizeX: 1,sizeY: 1,content:"array"},
+                    {id:1,name: "Widget 2",row: 0,col: 2,sizeX: 1,sizeY: 1,content:'map'}
                 ]
-            },
+            }/*,
             2: {
                 id: '2',
-                name: 'dashboard 2',
+                name: '开发版面2',
                 widgets: [
                     {col: 1,row: 1,sizeY: 1,sizeX: 2,name: "Other Widget 1",id:0},
                     {col: 1,row: 3,sizeY: 1, sizeX: 1,name: "Other Widget 2",id:1}
                 ]
-            }
+            }*/
         };
     }
 
@@ -51,12 +51,20 @@ app.service('userService',['$http','$q', function ($http,$q) {
                 alert('Impossible de récupéré les données du dashboard');
             });
         */
-        var widgets = [{col:0, row:0, sizeY:1, sizeX:2, name:"Widget 1", id:0, content:"array", type:"tyre"}, {col:2, row:0, sizeY:1, sizeX:1, name:"Widget 2", id:1, content:"image", type:"whatever"}, {name:"New Widget", sizeX:2, sizeY:2, id:2, row:0, col:3, content:"map"}, {name:"New Widget", sizeX:3, sizeY:1, id:3, row:1, col:0, content:"graph"}, {name:"New Widget", sizeX:1, sizeY:1, id:4, row:2, col:0, content:"chart", type:"tyre"}, {name:"New Widget", sizeX:3, sizeY:2, id:5, row:2, col:1, content:"array", type:"tyre with searchTab"}, {name:"New Widget", sizeX:1, sizeY:1, id:6, row:2, col:4, content:"image", type:"whatever"}]
+        var widgets = [
+            {id:0, name:"表格", row:0, col:0, sizeX:2, sizeY:1, content:"array", type:"tyre"},
+            {id:1, name:"图片", row:0, col:2, sizeX:1, sizeY:1, content:"image", type:"whatever"},
+            {id:2, name:"地图", row:0, col:3, sizeX:2, sizeY:2, content:"map"},
+            {id:3, name:"文字", row:1, col:0, sizeX:1, sizeY:1, content:""},
+            {id:4, name:"趋势图", row:1, col:1, sizeX:2, sizeY:1, content:"graph"},
+            {id:5, name:"饼图", row:2, col:0, sizeX:2, sizeY:1, content:"chart", type:"tyre"},
+            {id:6, name:"可搜索表格", row:2, col:2, sizeX:3, sizeY:1, content:"array", type:"tyre with searchTab"}
+        ];
 
 
         var length = Object.keys(base).length;
         length++;
-        base[length] = { id:length, name:"mon dashboard", widgets:widgets}; //WOW SAD ! Fix THIS
+        base[length] = { id:length, name:"运行版面", widgets:widgets}; //WOW SAD ! Fix THIS
 
         return base;
     }

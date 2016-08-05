@@ -11,7 +11,8 @@ app.directive("dynCustom", function($compile,$rootScope,widgetService){
 		    	var sth = widgetService.getDirective(content,type);
 				element.empty();
 				element.append($compile(sth)(scope));
-		    }
+		    };
+
 			var linkFunction = function(scope, element, attributes) {
 				update(scope,element,attributes);
 				scope.$watch(function () { return attributes.content }, function (v) {
@@ -25,4 +26,4 @@ app.directive("dynCustom", function($compile,$rootScope,widgetService){
 			return linkFunction;
 		}
   });
-}); 
+});

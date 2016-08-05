@@ -1,4 +1,4 @@
-
+// 创建各种组件
 app.service('widgetService',['$http','$q', function ($http,$q) {
 
     function getDirective(content, type){
@@ -11,13 +11,14 @@ app.service('widgetService',['$http','$q', function ($http,$q) {
                                     return '<my-array-display search="false"></my-array-display>';
                                 }
             case 'image'    :   if(typeof(type) !== 'undefined')
-                                    return '<img class="ImgBoxes" ng-src="images/'+type+'.jpg" alt="'+type+'"></img>';
+                                    //return '<img class="ImgBoxes" ng-src="images/'+type+'.jpg" alt="'+type+'"></img>';
+                                    return '<img class="ImgBoxes" ng-src="images/whatever.jpg" alt="'+type+'"></img>';
 
             case 'map'      :   return '<leaflet center="center"></leaflet>';
 
             case 'chart'    :   return '<nvd3-pie-chart data="examplePieData" showLegend="true" margin="{left:0,top:0,bottom:0,right:0}" x="xFunction()" y="yFunction()" showLabels="true" pieLabelsOutside="true" showValues="true" labelType="percent"></nvd3-pie-chart>';
 
-            default:            return '<p></p>';
+            default:            return '<marquee class="scroll-text">精心设计 科学管理 诚信服务 顾客满意</marqueel>';
         }
     }
 

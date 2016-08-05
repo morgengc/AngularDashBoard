@@ -1,17 +1,19 @@
+<!-- Header -->
 <div class="row">
 	<div class="col-md-12">
 		<div class="page-header">
-			<a class="pull-right btn btn-info" ng-click="save()"><i class="glyphicon glyphicon-save"></i>Enregistrer</a>
-			<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
-			<a class="pull-right btn btn-success" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
-			<h1 style="display: inline-block; width: 200px; color:#fff">Dashboard</h1>
-			<select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
-			</select>
+			<!--<h2 style="display: inline-block; width: 200px; color:#fff">展示板</h2>-->
+			<!--<select class="form-control" style="width: 150px; margin-bottom: 0px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'"></select>-->
+			<a class="pull-left btn btn-primary" ng-click="save()"><i class="glyphicon glyphicon-save"></i>保存</a>
+			<a class="pull-left btn btn-info" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i>清除</a>
+			<a class="pull-left btn btn-success" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i>添加</a>
+			<select class="pull-right form-control" style="width: 150px; margin-bottom: 20px;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'"></select>
 		</div>
 	</div>
 </div>
 
-<div class="row">
+<!-- 主体区域 -->
+<div class="row" style="margin-left: -5px; margin-right: 8px">
 	<div class="col-md-12">
 		<div gridster="gridsterOptions">
 			<ul>

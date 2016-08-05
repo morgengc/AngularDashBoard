@@ -2,10 +2,11 @@ angular.module('app')
 
 .controller('DashboardCtrl', ['$scope', '$timeout', '$compile', "graphService", "userService",
 	function($scope, $timeout,$compile,graphService,userService) {
-		//Options for Gridster system
+		// Options for Gridster system
 		$scope.gridsterOptions = {
-			margins: [20, 20],
+			margins: [0, 0],
 			columns: 5,
+			outerMargin: false,
 			draggable: {
 				handle: 'h3'
 			}
@@ -17,30 +18,30 @@ angular.module('app')
 
 		$scope.graphContentList = graphService.RecoverDetailGraph();
 		
-		//For leaflet Details
-		angular.extend($scope, {center: {lat: 45.783,lng: 3.083,zoom: 13}});
+		// For leaflet Details
+		angular.extend($scope, {center: {lat: 29.570,lng: 106.572,zoom: 13}});
 
-	 	//Data for piechart Exemple
+	 	// Data for piechart Exemple
 	 	$scope.examplePieData = [{key: "One",y: 5},{key: "Two",y: 2},{key: "Three",y: 9},{key: "Four",y: 7},{key: "Five",y: 4},{key: "Six",y: 3},{key: "Seven",y: 9}];
 
-	 	//Data for Line Chart
+	 	// Data for Line Chart
  	 	$scope.exampleLineData = [{"key": "Series 1",
  			"values": [ [ 1 , 0] , [ 2 , -6.33] , [ 3 , -5.95] , [ 4 , -11.56] , [ 5 , -5.47] , [ 6 , 0.50] , [ 7 , -5.53] , [ 8 , -5.78] , [ 9 , -7.32] , [ 10 , -6.70] , [ 11 , 0.44] , [ 12 , 7.24] , [ 13 , 9.25] , [ 14 , 11.34] , [ 15 , 14.73] , [ 16 , 12.38] , [ 17 , 18.43] , [ 18 , 19.83] , [ 19 , 22.64]]
  		}];
 
-		//for graphe purpose
-	 	$scope.xFunction = function() {return function(d) {return d.key;};}
-	 	$scope.yFunction = function() {return function(d) {return d.y;};}
+		// for graphe purpose
+	 	$scope.xFunction = function() {return function(d) {return d.key;};};
+	 	$scope.yFunction = function() {return function(d) {return d.y;};};
 
 
 		$scope.dashboards = userService.RecoverDashboard();
 
-		//Clear all widget from dashboard
+		// Clear all widget from dashboard
 		$scope.clear = function() {
 			$scope.dashboard.widgets = [];
 		};
 
-		//Add a new empty widget to the Dashboard
+		// Add a new empty widget to the Dashboard
 		$scope.addWidget = function() {
 			$scope.dashboard.widgets.push({
 				name: "New Widget",
@@ -49,20 +50,20 @@ angular.module('app')
 			});
 		};
 
-		//Save the current dashboard in the 'mon dashboard' item
+		// Save the current dashboard in the 'running dashboard' item
 		$scope.save = function(){
 			var widgets = JSON.parse(JSON.stringify($scope.dashboard.widgets));
 			var length = Object.keys($scope.dashboards).length;
-			if($scope.dashboards[length].name == "mon dashboard")
-				$scope.dashboards[length] = { id:length, name:"mon dashboard", widgets:widgets};
+			if($scope.dashboards[length].name == "运行版面")
+				$scope.dashboards[length] = { id:length, name:"运行版面", widgets:widgets};
 			else{
 				length++;
-				$scope.dashboards[length] = { id:length, name:"mon dashboard", widgets:widgets};
+				$scope.dashboards[length] = { id:length, name:"运行版面", widgets:widgets};
 			}
 			userService.saveDashboard(widgets);
-		}
+		};
 
-		//To switch between Dashboard
+		// To switch between Dashboard
 		$scope.$watch('selectedDashboardId', function(newVal, oldVal) {
 			if (newVal !== oldVal) {
 				$scope.dashboard = $scope.dashboards[newVal];

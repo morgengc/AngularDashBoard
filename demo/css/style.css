@@ -2,6 +2,18 @@ body{
   background-color: #222
 }
 
+label{
+    font-family: 'Microsoft YaHei';
+    font-size:16px;
+    font-weight: normal;
+}
+
+h3{
+    font-family: 'Microsoft YaHei';
+    font-size:18px;
+    font-weight:bold;
+}
+
 .navbar {
     padding: 0 20px;
 }
@@ -14,7 +26,9 @@ input {
     padding: 4px;
 }
 .container {
-    margin: auto;
+    /*margin: auto;*/
+    margin-left: 20px;
+    margin-right: 10px;
 }
 .code-coverage {
     color: #fff;
@@ -23,12 +37,13 @@ input {
     padding: 10px;
 }
 
-
 .controls {
     margin-bottom: 20px;
 }
 .page-header {
     margin-top: 20px;
+    height: 40px;
+    border-bottom:1px solid #ccc;
 }
 ul {
     list-style: none;
@@ -36,6 +51,7 @@ ul {
 .box {
     height: 100%;
     border: 1px solid #ccc;
+    background-color: #fff; /* 组件高度增加后，底部会出现较明显的空白，设置为白色使之不太明显 */
     overflow: hidden;
 }
 .box-header {
@@ -51,7 +67,7 @@ ul {
     width:80%;
 }
 .box-content {
-    padding: 10px;
+    padding: 5px;
 }
 .box-header-btns {
     top: 15px;
@@ -66,7 +82,7 @@ form {
     margin-bottom: 0;
 }
 .gridster {
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
 }
 
 .modal-footer {
@@ -129,4 +145,10 @@ form {
     float:right;
     width:200px;
     height:40px;
+}
+
+.scroll-text{
+    font-family: "Microsoft YaHei";
+    font-size: 40px;
+    margin-top: 80px;
 }
