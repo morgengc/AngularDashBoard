@@ -68,12 +68,15 @@ ul {
 }
 .box-content {
     padding: 5px;
+    position: relative;
+    z-index: 0;
 }
 .box-header-btns {
     top: 15px;
     right: 10px;
     cursor: pointer;
     position: absolute;
+    z-index: 1000;
 }
 a {
     color: #ccc;
