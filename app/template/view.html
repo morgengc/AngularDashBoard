@@ -1,0 +1,35 @@
+<!-- Header -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<a class="pull-left btn btn-primary" ng-click="save()"><i class="glyphicon glyphicon-save"></i>保存</a>
+			<a class="pull-left btn btn-info" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i>清除</a>
+			<a class="pull-left btn btn-success" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i>添加</a>
+			<select class="pull-right form-control" style="width: 150px; margin-bottom: 20px;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'"></select>
+		</div>
+	</div>
+</div>
+
+<!-- 主体区域 -->
+<div class="row" style="margin-left: -5px; margin-right: 8px">
+	<div class="col-md-12">
+		<div gridster="gridsterOptions">
+			<ul>
+				<li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+					<div class="box" ng-controller="CustomWidgetCtrl">
+						<div class="box-header">
+							<div ng-show="showt"><h3>{{ widget.name }}</h3></div>
+							<div class="box-header-btns pull-right">
+								<a title="Show/Hide title" ng-click="showt = !showt"><i class="glyphicon glyphicon-wrench"></i></a>
+								<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+								<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+							</div>
+						</div>
+						<div dyn-custom class="box-content hin" content="{{widget.content}}" type="{{widget.type}}">
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
