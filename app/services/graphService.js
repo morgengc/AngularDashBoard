@@ -22,7 +22,7 @@ app.service('graphService',['$http','$q', function ($http, $q) {
          */
     }
 
-    // 返回组件详细类型. 同上，简便起见直接返回了数组
+    // 返回组件参数. 同上，简便起见直接返回了数组
     function RecoverDetailGraph(){
 
         return {

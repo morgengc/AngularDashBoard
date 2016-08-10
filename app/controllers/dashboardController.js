@@ -5,11 +5,13 @@ angular.module('app')
 *
 * @method DashboardCtrl
 * @param {Object} $scope        HTML与控制器之间绑定数据
-* @param {Object} $graphService
+* @param {Object} graphService  自定义服务，获取组件类型
+* @param {Object} userService   自定义服务，获取面板数据
 * @return undefined
 */
 .controller('DashboardCtrl', ['$scope', "graphService", "userService",
 	function($scope, graphService, userService) {
+
 		// Gridster 配置参数
 		$scope.gridsterOptions = {
 			margins: [0, 0],
@@ -20,13 +22,16 @@ angular.module('app')
 			}
 		};
 
+		// 根据组件类型判断是否显示组件参数
 		$scope.dispTypelist = false;
+		// 组件类型列表
 		$scope.ContentList = graphService.RecoverData();
+		// 组件参数列表
+		$scope.graphContentList = graphService.RecoverDetailGraph();
+		// 一个组件的参数
 		$scope.typeList = [""];
 
-		$scope.graphContentList = graphService.RecoverDetailGraph();
-		
-		// For leaflet Details
+		// leaflet 定位到重庆解放碑
 		angular.extend($scope, {center: {lat: 29.570,lng: 106.572,zoom: 13}});
 
 	 	// Data for piechart Exemple
