@@ -6,12 +6,12 @@ app.directive("myArrayDisplay", function () {
             search:'@search'
             // Can additionally pass something in here
         },
-        controller: function ($scope, myDataService) {
+        controller: function ($scope, arrayService) {
             $scope.sortType     = ''; // set the default sort type
             $scope.sortReverse  = true;  // set the default sort order
             $scope.searchFish   = '';     // set the default search/filter term
-            $scope.dataTab = myDataService.getDataTab();
-            $scope.dataTabTitle = myDataService.getDataTitle();
+            $scope.dataTab = arrayService.getDataTab();
+            $scope.dataTabTitle = arrayService.getDataTitle();
             $scope.searchtab = $scope.search;
         }
     }

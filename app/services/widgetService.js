@@ -1,7 +1,14 @@
-// 创建各种组件
-app.service('widgetService',['$http','$q', function ($http,$q) {
+/**
+ * widgetService 服务，创建各种组件
+ *
+ * @method widgetService
+ * @param {Object} $http Angular $http 服务，与远程服务器进行 HTTP 交互
+ * @param {Object} $q    Angular $q 服务，提供一种承诺/延后(promise/deferred)，保证调用的代码一定获得数据
+ * @return 服务接口函数
+ */
+app.service('widgetService',['$http','$q', function ($http, $q) {
 
-    function getDirective(content, type){
+    function getDirective(content, type) {
         switch(content){
             case 'graph'    :   return '<nvd3-line-chart data="exampleLineData" margin="{left:40,top:10,bottom:30,right:10}" showXAxis="true" showYAxis="true" interactive="true"></nvd3-line-chart>';
 
@@ -11,7 +18,6 @@ app.service('widgetService',['$http','$q', function ($http,$q) {
                                     return '<my-array-display search="false"></my-array-display>';
                                 }
             case 'image'    :   if(typeof(type) !== 'undefined')
-                                    //return '<img class="ImgBoxes" ng-src="images/'+type+'.jpg" alt="'+type+'"></img>';
                                     return '<img class="ImgBoxes" ng-src="images/whatever.jpg" alt="'+type+'"></img>';
 
             case 'map'      :   return '<leaflet center="center"></leaflet>';

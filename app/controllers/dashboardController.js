@@ -4,13 +4,13 @@ angular.module('app')
 * index.html 中引用的控制器，用于控制 Dashboard 页
 *
 * @method DashboardCtrl
-* @param {Object} $scope       HTML与控制器之间绑定数据
-* @param {Object} $timeout     定时器
+* @param {Object} $scope        HTML与控制器之间绑定数据
+* @param {Object} $graphService
 * @return undefined
 */
-.controller('DashboardCtrl', ['$scope', '$timeout', '$compile', "graphService", "userService",
-	function($scope, $timeout,$compile,graphService,userService) {
-		// Options for Gridster system
+.controller('DashboardCtrl', ['$scope', "graphService", "userService",
+	function($scope, graphService, userService) {
+		// Gridster 配置参数
 		$scope.gridsterOptions = {
 			margins: [0, 0],
 			columns: 5,
@@ -58,12 +58,12 @@ angular.module('app')
 			});
 		};
 
-		// Save the current dashboard in the 'running dashboard' item
+		// 保存"开发版面"的数据到"运行版面"
 		$scope.save = function(){
 			var widgets = JSON.parse(JSON.stringify($scope.dashboard.widgets));
 			var length = Object.keys($scope.dashboards).length;
-			if($scope.dashboards[length].name == "运行版面")
-				$scope.dashboards[length] = { id:length, name:"运行版面", widgets:widgets};
+			if($scope.dashboards[1].name == "运行版面")
+				$scope.dashboards[1] = { id:1, name:"运行版面", widgets:widgets};
 			else{
 				length++;
 				$scope.dashboards[length] = { id:length, name:"运行版面", widgets:widgets};
