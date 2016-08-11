@@ -27,7 +27,7 @@ app.service('userService', ['$http', '$q', function ($http, $q) {
         var widgets = [
             {id:0, name:"表格", row:0, col:0, sizeX:2, sizeY:1, content:"array", type:"table"},
             {id:1, name:"图片", row:0, col:2, sizeX:1, sizeY:1, content:"image", type:"image"},
-            {id:2, name:"地图", row:0, col:3, sizeX:2, sizeY:2, content:"map", type:"map"},
+            {id:2, name:"地图", row:0, col:3, sizeX:2, sizeY:2, content:"map", type:"leaflet"},
             {id:3, name:"文字", row:1, col:0, sizeX:1, sizeY:1, content:"text", type:"text"},
             {id:4, name:"趋势图", row:1, col:1, sizeX:2, sizeY:1, content:"graph", type:"graph"},
             {id:5, name:"饼图", row:2, col:0, sizeX:2, sizeY:1, content:"chart", type:"chart"},
@@ -37,16 +37,16 @@ app.service('userService', ['$http', '$q', function ($http, $q) {
         var base = {
             1: {
                 id: '1',
-                name: '运行版面',
-                widgets: widgets
-            },
-            2: {
-                id: '2',
                 name: '开发版面',
                 widgets: [
                     {id:0, name: "Widget 1", row: 0, col: 0, sizeX: 1, sizeY: 1, content:"array", type:"table"}, 
-                    {id:1, name: "Widget 2", row: 0, col: 2, sizeX: 1, sizeY: 1, content:'map', type:"map"}
+                    {id:1, name: "Widget 2", row: 0, col: 2, sizeX: 1, sizeY: 1, content:'image', type:"image"}
                 ]
+            },
+            2: {
+                id: '2',
+                name: '运行版面',
+                widgets: widgets
             }
         };
 

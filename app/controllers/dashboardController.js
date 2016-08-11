@@ -32,8 +32,8 @@ angular.module('app')
 		$scope.typeList = [""];
 
 		// leaflet 定位到重庆解放碑
-		// TODO: 地图不能最大化，除非切换版面以后再切换回来
-		angular.extend($scope, {center: {lat: 29.570,lng: 106.572,zoom: 13}});
+		// TODO: 地图不能最大化，除非切换版面以后再切换回来. 感觉是leaflet的BUG，因为地图区域是最大化的，但是地图块没有加载完全
+		angular.extend($scope, {center: {lat:29.570, lng:106.572, zoom:13}});
 
 	 	// 饼图数据
 	 	$scope.examplePieData = [{key: "One",y: 5},{key: "Two",y: 2},{key: "Three",y: 9},{key: "Four",y: 7},{key: "Five",y: 4},{key: "Six",y: 3},{key: "Seven",y: 9}];
@@ -44,7 +44,6 @@ angular.module('app')
  	 	$scope.exampleLineData = [{"key": "Series 1",
  			"values": [ [ 1 , 0] , [ 2 , -6.33] , [ 3 , -5.95] , [ 4 , -11.56] , [ 5 , -5.47] , [ 6 , 0.50] , [ 7 , -5.53] , [ 8 , -5.78] , [ 9 , -7.32] , [ 10 , -6.70] , [ 11 , 0.44] , [ 12 , 7.24] , [ 13 , 9.25] , [ 14 , 11.34] , [ 15 , 14.73] , [ 16 , 12.38] , [ 17 , 18.43] , [ 18 , 19.83] , [ 19 , 22.64]]
  		}];
-
 
 		// 全部版面的数据
 		$scope.dashboards = userService.RecoverDashboard();
@@ -59,7 +58,7 @@ angular.module('app')
 			$scope.dashboard.widgets.push({
 				name: "New Widget",
 				sizeX: 1,
-				sizeY: 1,
+				sizeY: 1
 			});
 		};
 
@@ -102,6 +101,9 @@ angular.module('app')
 .controller('CustomWidgetCtrl', ['$scope', '$modal',
 	function($scope, $modal) {
 
+		// 默认显示组件的标题栏
+		$scope.showt = true;
+
 		// 删除该组件. 实际上只需要从数组中删除栅格数据即可，双向绑定实在方便
 		$scope.remove = function(widget) {
 			$scope.dashboard.widgets.splice($scope.dashboard.widgets.indexOf(widget), 1);
@@ -140,6 +142,7 @@ angular.module('app')
 	function($scope, $modalInstance, widget ) {
 		$scope.widget = widget;
 
+		// 组件属性初始值显示在配置窗口中，若手动修改了属性值，则会改变form对象
 		$scope.form = {
 			name: widget.name,
 			col: widget.col,

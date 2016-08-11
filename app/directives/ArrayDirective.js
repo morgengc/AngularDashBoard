@@ -1,3 +1,12 @@
+/**
+ * myArrayDisplay 指令，对应 HTML 中的 my-array-display 标签
+ * 这个标签定义一个 array 组件
+ * HTML时用属性(A)、元素(E)和类(C)声明格式来匹配指令定义
+ *
+ * @method myArrayDisplay
+ * @param 无
+ * @return 指令
+ */
 app.directive("myArrayDisplay", function () {
     return {
         restrict: 'AEC',

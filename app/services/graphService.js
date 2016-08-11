@@ -26,10 +26,10 @@ app.service('graphService',['$http','$q', function ($http, $q) {
     function RecoverDetailGraph(){
 
         return {
-            'text': ['text'],
+            'text' : ['text'],
             'array': ['table with searchTab','table'],
             'graph': ['graph'],
-            'map':   ['map'],
+            'map'  : ['leaflet'],
             'image': ['image'],
             'chart': ['chart']
         }
