@@ -11,7 +11,7 @@ app.service('graphService',['$http','$q', function ($http, $q) {
     // 返回组件类型列表. 这里简单起见直接返回了，可以从服务端获取数据后返回
     function RecoverData(){
 
-        return ['array','graph','map','image','chart'];
+        return ['text', 'array', 'graph', 'map', 'image', 'chart'];
         /*
          $http.get(serverURL).
          success(function(data) {
@@ -26,11 +26,12 @@ app.service('graphService',['$http','$q', function ($http, $q) {
     function RecoverDetailGraph(){
 
         return {
-            'array': ['tyre with searchTab','tyre','sensor','whatever'],
-            'graph': ['tyre','sensor','whatever'],
-            'map':   ['tyre','sensor','whatever'],
-            'image': ['whatever','whatever'],
-            'chart': ['tyre','sensor','whatever']
+            'text': ['text'],
+            'array': ['table with searchTab','table'],
+            'graph': ['graph'],
+            'map':   ['map'],
+            'image': ['image'],
+            'chart': ['chart']
         }
     }
 

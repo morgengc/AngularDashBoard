@@ -25,13 +25,13 @@ app.service('userService', ['$http', '$q', function ($http, $q) {
     function RecoverDashboard(){
 
         var widgets = [
-            {id:0, name:"表格", row:0, col:0, sizeX:2, sizeY:1, content:"array", type:"tyre"},
-            {id:1, name:"图片", row:0, col:2, sizeX:1, sizeY:1, content:"image", type:"whatever"},
-            {id:2, name:"地图", row:0, col:3, sizeX:2, sizeY:2, content:"map"},
-            {id:3, name:"文字", row:1, col:0, sizeX:1, sizeY:1, content:""},
-            {id:4, name:"趋势图", row:1, col:1, sizeX:2, sizeY:1, content:"graph"},
-            {id:5, name:"饼图", row:2, col:0, sizeX:2, sizeY:1, content:"chart", type:"tyre"},
-            {id:6, name:"可搜索表格", row:2, col:2, sizeX:3, sizeY:1, content:"array", type:"tyre with searchTab"}
+            {id:0, name:"表格", row:0, col:0, sizeX:2, sizeY:1, content:"array", type:"table"},
+            {id:1, name:"图片", row:0, col:2, sizeX:1, sizeY:1, content:"image", type:"image"},
+            {id:2, name:"地图", row:0, col:3, sizeX:2, sizeY:2, content:"map", type:"map"},
+            {id:3, name:"文字", row:1, col:0, sizeX:1, sizeY:1, content:"text", type:"text"},
+            {id:4, name:"趋势图", row:1, col:1, sizeX:2, sizeY:1, content:"graph", type:"graph"},
+            {id:5, name:"饼图", row:2, col:0, sizeX:2, sizeY:1, content:"chart", type:"chart"},
+            {id:6, name:"可搜索表格", row:2, col:2, sizeX:3, sizeY:1, content:"array", type:"table with searchTab"}
         ];
 
         var base = {
@@ -44,8 +44,8 @@ app.service('userService', ['$http', '$q', function ($http, $q) {
                 id: '2',
                 name: '开发版面',
                 widgets: [
-                    {id:0,name: "Widget 1",row: 0,col: 0,sizeX: 1,sizeY: 1,content:"array"},
-                    {id:1,name: "Widget 2",row: 0,col: 2,sizeX: 1,sizeY: 1,content:'map'}
+                    {id:0, name: "Widget 1", row: 0, col: 0, sizeX: 1, sizeY: 1, content:"array", type:"table"}, 
+                    {id:1, name: "Widget 2", row: 0, col: 2, sizeX: 1, sizeY: 1, content:'map', type:"map"}
                 ]
             }
         };
