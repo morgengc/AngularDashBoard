@@ -6,18 +6,24 @@
  * @param {Object} $q    Angular $q 服务，提供一种承诺/延后(promise/deferred)，保证调用的代码一定获得数据
  * @return 服务接口函数
  */
-app.service('widgetService',['$http','$q', function ($http, $q) {
+app.service('widgetService', ['$http', '$q', function($http, $q) {
 
     function getDirective(content, type) {
         switch(content){
-            case 'graph'    :   return '<nvd3-line-chart data="exampleLineData" margin="{left:40,top:10,bottom:30,right:10}" showXAxis="true" showYAxis="true" interactive="true"></nvd3-line-chart>';
+            case 'graph'    :   if (typeof(type) !== 'undefined') {
+                                    if (type.indexOf('graph') != -1)
+                                        return '<nvd3-line-chart data="exampleLineData" margin="{left:40,top:10,bottom:30,right:10}" showXAxis="true" showYAxis="true" interactive="true"></nvd3-line-chart>';
+                                    else
+                                        return '<iframe src="http://bigdata1637:8082/#/notebook/2BCBJRNMY/paragraph/20160307-195115_450086467?asIframe" width="100%" height="auto" frameborder="no" scrolling="no" marginheight="0" marginwidth="0" allowfullscreen></iframe>';
+                                }
 
-            case 'array'    :   if(typeof(type) !== 'undefined'){
-                                    if(type.indexOf('search') != -1)
+            case 'array'    :   if (typeof(type) !== 'undefined'){
+                                    if (type.indexOf('search') != -1)
                                         return '<my-array-display search="true"></my-array-display>';
                                     return '<my-array-display search="false"></my-array-display>';
                                 }
-            case 'image'    :   if(typeof(type) !== 'undefined')
+
+            case 'image'    :   if (typeof(type) !== 'undefined')
                                     return '<img class="ImgBoxes" ng-src="images/whatever.jpg" alt="'+type+'"></img>';
 
             case 'map'      :   return '<leaflet center="center"></leaflet>';

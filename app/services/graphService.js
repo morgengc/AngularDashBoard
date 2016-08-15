@@ -6,7 +6,7 @@
  * @param {Object} $q    Angular $q 服务，提供一种承诺/延后(promise/deferred)，保证调用的代码一定获得数据
  * @return 服务接口函数
  */
-app.service('graphService',['$http','$q', function ($http, $q) {
+app.service('graphService', ['$http', '$q', function($http, $q) {
 
     // 返回组件类型列表. 这里简单起见直接返回了，可以从服务端获取数据后返回
     function RecoverData(){
@@ -28,7 +28,7 @@ app.service('graphService',['$http','$q', function ($http, $q) {
         return {
             'text' : ['text'],
             'array': ['table with searchTab','table'],
-            'graph': ['graph'],
+            'graph': ['graph', 'zeppelin'],
             'map'  : ['leaflet'],
             'image': ['image'],
             'chart': ['chart']

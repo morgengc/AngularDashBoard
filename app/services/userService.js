@@ -6,7 +6,7 @@
  * @param {Object} $q    Angular $q 服务，提供一种承诺/延后(promise/deferred)，保证调用的代码一定获得数据
  * @return 服务接口函数
  */
-app.service('userService', ['$http', '$q', function ($http, $q) {
+app.service('userService', ['$http', '$q', function($http, $q) {
 
     // 保存数据. 简单起见没有往服务端发送任何数据
     function saveDashboard(dashboard){

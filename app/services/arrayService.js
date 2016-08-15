@@ -5,7 +5,7 @@
  * @param {Object} 无
  * @return 服务接口函数
  */
-app.factory('arrayService', [function () {
+app.factory('arrayService', [function() {
 
     // 表数据
     var dataTab = [

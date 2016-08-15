@@ -184,7 +184,7 @@ angular.module('app')
 	}
 ])
 
-// helper code
+// 版面下拉列表需要这个过滤器
 .filter('object2Array', function() {
 	return function(input) {
 		var out = [];
