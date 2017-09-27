@@ -176,7 +176,7 @@ angular.module('app')
 
 		// 修改组件属性，并且关闭配置窗口
 		// angular.extend(dst, src)
-    	// form 对象在 HTML 中被改变，将改变应用到原栅格上即可
+		// form 对象在 HTML 中被改变，将改变应用到原栅格上即可
 		$scope.submit = function() {
 			angular.extend(widget, $scope.form);
 			$modalInstance.close(widget);
